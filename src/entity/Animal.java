@@ -7,11 +7,17 @@ public class Animal {
 	int age;
 	boolean isMammal;
 
-	public Animal(String family, String name, int age, boolean isMammal) {
+	public Animal(String family, String name, int age, boolean isMammal) throws AgeException {
 		super();
 		this.family = family;
 		this.name = name;
+		if(age<0) {
+			throw new AgeException("age invalide");
+		}
+		else
+		{
 		this.age = age;
+		}
 		this.isMammal = isMammal;
 	}
 
