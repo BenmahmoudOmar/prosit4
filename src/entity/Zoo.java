@@ -4,7 +4,7 @@ public class Zoo {
 	Animal [] animals;
 	 String name;
 	 String city;
-	final int nbrCages=25;
+	final int nbrCages=3;
 	 int nbrAnimals;
 	public Zoo() {
 		super();
@@ -38,16 +38,14 @@ public class Zoo {
 		}
 		return s;
 	}
-		public boolean addanimal(Animal animale) {
-		if(!(isZoofull())) {
-			return false;
-		}	
-		if(nbrCages==nbrAnimals) {
-			return false;
-		}
+		public void addanimal(Animal animale) throws ZooFullException {	
+			if(nbrCages>nbrAnimals) {
 		animals[nbrAnimals]=animale;
-		nbrAnimals++;
-		return true;
+		nbrAnimals++;}
+			else {
+				 throw new ZooFullException("Zoo is full. Cannot add more animals");
+			}
+		
 		}
 		   boolean removeAnimal(Animal animale) {
 		        int indexAnimal = searchanimals(animale);
